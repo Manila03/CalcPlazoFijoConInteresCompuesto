@@ -1,0 +1,20 @@
+print("Bienvenido a la calculadora de plazo fijo con interes compuesto (podras tomar en cuenta gastos personales)")
+monto_temp = int(input("cuanto es el monto inicial a depositar: "))
+tiempo = int(input("tiempo en meses del calculo: "))
+tasa = int(input("ingrese la tasa del plazo fijo: "))
+gast_mens = int(input("ingreses los gastos mensuales: "))
+frec_capi = int(input("Frecuencia de capitalización (es decir, cuanto tarda en pagar el plazo fijo medido en meses): "))
+capi= input("desea agregar un monto extra al plazo fijo cada mes? si es el caso presione: 'y' y luego 'enter', si no lo fuera presione 'enter' directamente ")
+
+rango = round(tiempo / frec_capi)
+
+if (capi == "y"):
+    agreg = int(input("Monto que tiene previsto agregar al capital cada mes: "))
+else:
+    agreg = 0
+
+print("lo que pagaria el plazo fijo cada mes, seria: ")
+for i in range (rango):
+    plazo_fijo = ((monto_temp*(tasa/100))/12)*frec_capi
+    monto_temp += (plazo_fijo + agreg - gast_mens)
+    print(monto_temp)
